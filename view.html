@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Love Letter 💌</title>
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    background: #ffe6e6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  .letter-box {
+    background: #fff0f5;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+  }
+  h2 {
+    color: #ff4d6d;
+  }
+  p {
+    font-size: 18px;
+    white-space: pre-wrap;
+  }
+</style>
+</head>
+<body>
+<div class="letter-box">
+  <h2 id="receiverTitle">💌 A Letter for You 💌</h2>
+  <p id="letterText"></p>
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const letter = params.get('letter');
+const receiver = params.get('receiver');
+
+if (receiver) {
+  document.getElementById('receiverTitle').innerText = `💌 A Letter for ${receiver} 💌`;
+}
+document.getElementById('letterText').innerText = decodeURIComponent(letter);
+</script>
+</body>
+</html>
